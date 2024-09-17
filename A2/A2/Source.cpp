@@ -3,13 +3,16 @@
 #include <vector>
 #include <string>
 #include <sstream>
-
+// Created Struct called STUDENT_DATA
 struct STUDENT_DATA {
     std::string first_name;
     std::string last_name;
 };
 int main() {
+    // opening the StudentData.txt
     std::ifstream file("StudentData.txt");
+
+    // Creating a vector space called student_list which will store the information fetched by STUDENT_DATA
     std::vector<STUDENT_DATA> student_list;
     std::string line;
 
@@ -31,11 +34,13 @@ int main() {
     }
 
     file.close();
-
+    
+#ifdef _DEBUG
     // Output the student data for confirmation
     for (const auto& student : student_list) {
         std::cout << "First Name:  "<< student.first_name << "  " << " Last Name: " << student.last_name << std::endl;
     }
+#endif
 
     return 0;
 }
